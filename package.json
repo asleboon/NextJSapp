@@ -14,7 +14,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@sanity/cli": "^0.144.0",
-    "lerna": "^3.9.0"
-  }
+    "@sanity/cli": "^1.148.6",
+    "lerna": "^3.20.2"
+  },
+  "dependencies": {}
 }

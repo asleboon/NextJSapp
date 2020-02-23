@@ -1,13 +1,6 @@
 export default {
   widgets: [
     {
-      name: 'sanity-tutorials',
-      options: {
-        templateRepoId: 'sanity-io/sanity-template-nextjs-landing-pages'
-      }
-    },
-    {name: 'structure-menu'},
-    {
       name: 'project-info',
       options: {
         __experimental_before: [
@@ -39,15 +32,15 @@ export default {
             value: 'https://github.com/asleboon/NextJSapp',
             category: 'Code'
           },
-          {title: 'Frontend', value: 'https://NextJSapp.netlify.com', category: 'apps'}
+          { title: 'Frontend', value: 'https://NextJSapp.netlify.com', category: 'apps' }
         ]
       }
     },
-    {name: 'project-users', layout: {height: 'auto'}},
+    { name: 'project-users', layout: { height: 'auto' } },
     {
       name: 'document-list',
-      options: {title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['page']},
-      layout: {width: 'medium'}
+      options: { title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['page'] },
+      layout: { width: 'medium' }
     }
   ]
 }

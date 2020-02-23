@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "NextJSApp"
+    "name": "AsleTech"
   },
   "api": {
     "projectId": "5bcy9viz",
@@ -14,9 +14,13 @@
     "@sanity/default-login",
     "@sanity/dashboard",
     "@sanity/desk-tool",
+    "@sanity/code-input",
+    "@sanity/vision",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
-    "dashboard-widget-netlify"
+    "dashboard-widget-netlify",
+    "asset-source-unsplash",
+    "asset-source-giphy"
   ],
   "parts": [
     {
