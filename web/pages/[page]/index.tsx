@@ -55,11 +55,12 @@ const pageQuery = groq`
 
 Page.getInitialProps = async ({ sanityClient, query }) => {
   let slug: string = '';
-  if (query) {
-    slug = `${query.page}`;
+  if (!query) {
+    console.error("no query");
+    return;
   }
-  let result = await sanityClient.fetch(pageQuery, { slug })
-  return result
+  slug = `${query.page}`;
+  return await sanityClient.fetch(pageQuery, { slug })
 }
 
 export default Page;

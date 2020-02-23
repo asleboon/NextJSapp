@@ -28,7 +28,7 @@ const SecondaryPage: NextPage<SecondaryPageProps> = ({ page }) => {
 }
 
 const pageQuery = groq`
-*[_type == "route" && slug.current == $slug][0] {
+*[_type == "route" && slug.current == $slug ][0] {
   page-> {
     content[] {
       _type,
@@ -53,13 +53,15 @@ const pageQuery = groq`
 }
 `;
 
-SecondaryPage.getInitialProps = async ({ sanityClient, query }) => {
+SecondaryPage.getInitialProps = async ({ sanityClient, query, asPath }) => {
   let slug: string = '';
-  if (query) {
-    slug = `${query.page}/${query.secondaryPage}`  // We are on a secondary page
+  if (!query) {
+    console.error("no query");
+    return;
   }
-  let result = await sanityClient.fetch(pageQuery, { slug })
-  return result
+  slug = `${query.page}/${query.secondaryPage}`;
+  return await sanityClient.fetch(pageQuery, { slug })
 }
+
 
 export default SecondaryPage;
