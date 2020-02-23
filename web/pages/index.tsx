@@ -1,7 +1,5 @@
 import React from 'react'
 import { NextPage } from 'next'
-import { sanityClient } from '../client'
-import groq from 'groq'
 import { HeroAndCard } from '../components/RenderContent'
 import RenderSmallCards from '../components/RenderSmallCards'
 import BigAssCard from '../components/BigAssCard'
@@ -26,7 +24,7 @@ type FrontPageProps = {
 //TODO: Should pass content into a renderContent component.
 
 const HomePage: NextPage<HomePageProps> = ({ config }) => {
-  const { content, description, openGraphImage } = config.frontpage
+  const { content } = config.frontpage
   const smallCards = content.filter((c: any) => c._type === "imageSection")
   return (
     <>

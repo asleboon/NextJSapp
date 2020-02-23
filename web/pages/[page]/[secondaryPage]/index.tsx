@@ -1,8 +1,8 @@
 import React from 'react'
 import { NextPage } from 'next'
 import groq from 'groq'
-import { HeroAndCard } from '../../components/RenderContent'
-import RenderSmallCards from '../../components/RenderSmallCards'
+import { HeroAndCard } from '../../../components/RenderContent'
+import RenderSmallCards from '../../../components/RenderSmallCards'
 
 type ContentProps = {
   content: any
@@ -10,13 +10,13 @@ type ContentProps = {
   openGraphImage: any
 }
 
-type PageProps = {
+type SecondaryPageProps = {
   page: ContentProps;
   config: any
 }
 
 
-const Page: NextPage<PageProps> = ({ page }) => {
+const SecondaryPage: NextPage<SecondaryPageProps> = ({ page }) => {
   const { content } = page
   const smallCards = content.filter((c: any) => c._type === "imageSection")
   return (
@@ -53,13 +53,13 @@ const pageQuery = groq`
 }
 `;
 
-Page.getInitialProps = async ({ sanityClient, query }) => {
+SecondaryPage.getInitialProps = async ({ sanityClient, query }) => {
   let slug: string = '';
   if (query) {
-    slug = `${query.page}`;
+    slug = `${query.page}/${query.secondaryPage}`  // We are on a secondary page
   }
   let result = await sanityClient.fetch(pageQuery, { slug })
   return result
 }
 
-export default Page;
+export default SecondaryPage;

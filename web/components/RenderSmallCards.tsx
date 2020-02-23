@@ -39,7 +39,6 @@ const variants = {
 }
 
 const RenderSmallCards = ({ cards }: any) => {
-  console.log('cards', cards)
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.3 });
 

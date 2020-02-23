@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseApp, { AppContext } from 'next/app'
+import BaseApp, { AppContext, AppInitialProps } from 'next/app'
 import { sanityClient } from '../client'
 import Head from 'next/head';
 import groq from 'groq'
@@ -34,7 +34,8 @@ const siteConfigQuery = groq`
 `
 
 class App extends BaseApp {
-  static async getInitialProps({ Component, ctx }: AppContext) {
+  static async getInitialProps({ Component, ctx }: AppContext): Promise<AppInitialProps> {
+    ctx.sanityClient = sanityClient;
     let pageProps: any = {}
 
     if (Component.getInitialProps) {
