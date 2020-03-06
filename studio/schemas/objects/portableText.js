@@ -11,18 +11,18 @@ export default {
         { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
-        { title: 'Quote', value: 'blockquote' },
+        { title: 'Quote', value: 'blockquote' }
       ],
       marks: {
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Code', value: 'code' },
+          { title: 'Code', value: 'code' }
         ],
-        annotations: [{ type: 'link' }, { type: 'internalLink' }],
-      },
+        annotations: [{ type: 'link' }, { type: 'internalLink' }]
+      }
     },
     { type: 'figure' },
-    { type: 'embedHTML' },
-  ],
-};
+    { type: 'code' }
+  ]
+}

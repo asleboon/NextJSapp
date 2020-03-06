@@ -1,67 +1,35 @@
-import React from 'react'
-import { NextPage } from 'next'
-import groq from 'groq'
-import { HeroAndCard } from '../../../components/RenderContent'
-import RenderSmallCards from '../../../components/RenderSmallCards'
+import React from 'react';
+import { NextPage } from 'next';
+import { pageQuery } from '../../../queries/query';
+import { renderer } from '../../../components/RenderContent';
 
 type ContentProps = {
-  content: any
-  title: string;
-  openGraphImage: any
-}
+    content: any;
+    title: string;
+    openGraphImage: any;
+};
 
 type SecondaryPageProps = {
-  page: ContentProps;
-  config: any
-}
-
+    page: ContentProps;
+    config: any;
+};
 
 const SecondaryPage: NextPage<SecondaryPageProps> = ({ page }) => {
-  const { content } = page
-  const smallCards = content.filter((c: any) => c._type === "imageSection")
-  return (
-    <>
-      <HeroAndCard content={page.content} />
-      <RenderSmallCards cards={smallCards} />
-    </>
-  )
-}
+    if (!page || !page.content) {
+        return <div>Ingen data for</div>;
+    }
+    const { content } = page;
+    return content && content.map((c: any) => renderer(c));
+};
 
-const pageQuery = groq`
-*[_type == "route" && slug.current == $slug ][0] {
-  page-> {
-    content[] {
-      _type,
-      _key,
-      backgroundImage,
-      heading,
-      label,
-      text,
-      cta {
-        route -> {
-          slug {
-            current
-          },
-        },
-        title
-      },
-      image,
-    },
-    title,
-    openGraphImage
-  }
-}
-`;
-
-SecondaryPage.getInitialProps = async ({ sanityClient, query, asPath }) => {
-  let slug: string = '';
-  if (!query) {
-    console.error("no query");
-    return;
-  }
-  slug = `${query.page}/${query.secondaryPage}`;
-  return await sanityClient.fetch(pageQuery, { slug })
-}
-
+SecondaryPage.getInitialProps = async ({ sanityClient, query }) => {
+    let slug: string = '';
+    if (!query) {
+        console.error('no query');
+        return;
+    }
+    slug = `${query.page}/${query.secondaryPage}`;
+    return await sanityClient.fetch(pageQuery, { slug });
+};
 
 export default SecondaryPage;

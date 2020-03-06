@@ -20,7 +20,12 @@
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
     "asset-source-unsplash",
-    "asset-source-giphy"
+    "asset-source-giphy",
+    "google-analytics",
+    "seo-tools",
+    "content-model-graph",
+    "dashboard-widget-document-chart",
+    "@sanity/color-input"
   ],
   "parts": [
     {

@@ -11,17 +11,25 @@
         "start": "next start"
     },
     "dependencies": {
+        "@chakra-ui/core": "^0.6.1",
+        "@emotion/core": "^10.0.28",
+        "@emotion/styled": "^10.0.27",
         "@sanity/block-content-to-react": "^2.0.7",
         "@sanity/client": "^1.148.3",
         "@sanity/image-url": "^0.140.17",
+        "@types/prismjs": "^1.16.0",
+        "@types/react-syntax-highlighter": "^11.0.4",
         "@zeit/next-css": "^1.0.1",
+        "emotion-theming": "^10.0.27",
         "framer-motion": "^1.8.4",
         "groq": "^1.148.1",
         "next": "^9.2.2",
         "next-seo": "^4.3.0",
+        "prismjs": "^1.19.0",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
         "react-intersection-observer": "^8.25.3",
+        "react-syntax-highlighter": "^12.2.1",
         "styled-components": "^5.0.1"
     },
     "devDependencies": {

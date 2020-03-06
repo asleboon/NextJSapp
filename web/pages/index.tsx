@@ -1,38 +1,35 @@
-import React from 'react'
-import { NextPage } from 'next'
-import { HeroAndCard } from '../components/RenderContent'
-import RenderSmallCards from '../components/RenderSmallCards'
-import BigAssCard from '../components/BigAssCard'
+import React from 'react';
+import { NextPage } from 'next';
+import { withTheme } from 'emotion-theming';
+
+import RenderContent from '../components/RenderContent';
+import Layout from '../components/Layout';
 
 type HomePageProps = {
-  config: HomePageConfigProps;
-}
-
+    config: HomePageConfigProps;
+};
 
 type HomePageConfigProps = {
-  frontpage: FrontPageProps;
-  title: string;
-}
+    frontPage: FrontPageProps;
+    title: string;
+};
 
 type FrontPageProps = {
-  content: any;
-  description: string;
-  openGraphImage: any;
-}
-
-
-//TODO: Should pass content into a renderContent component.
+    content: any;
+    description: string;
+    openGraphImage: any;
+};
 
 const HomePage: NextPage<HomePageProps> = ({ config }) => {
-  const { content } = config.frontpage
-  const smallCards = content.filter((c: any) => c._type === "imageSection")
-  return (
-    <>
-      <HeroAndCard content={content} />
-      <RenderSmallCards cards={smallCards} />
-      <BigAssCard />
-    </>
-  )
-}
+    if (!config || !config.frontPage) {
+        return <div>Ingen data for</div>;
+    }
+    const { content } = config.frontPage;
+    return (
+        <>
+            <RenderContent content={content} />
+        </>
+    );
+};
 
-export default HomePage
+export default withTheme(HomePage);

@@ -4,46 +4,30 @@ export default {
   title: 'Hero',
   fields: [
     {
-      name: 'heading',
+      name: 'title',
       type: 'string',
-      title: 'Heading',
-    },
-    {
-      name: 'tagline',
-      type: 'simplePortableText',
-      title: 'Tagline',
+      title: 'Title'
     },
     {
       name: 'backgroundImage',
       type: 'image',
       title: 'Background image',
       options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: 'ctas',
-      type: 'array',
-      title: 'Call to actions',
-      of: [
-        {
-          title: 'Call to action',
-          type: 'cta',
-        },
-      ],
-    },
+        hotspot: true
+      }
+    }
   ],
   preview: {
     select: {
-      title: 'heading',
-      media: 'backgroundImage',
+      title: 'title',
+      media: 'backgroundImage'
     },
     prepare({ title, media }) {
       return {
         title,
         subtitle: 'Hero section',
-        media,
-      };
-    },
-  },
-};
+        media
+      }
+    }
+  }
+}

@@ -5,7 +5,11 @@ export default {
   fieldsets: [
     {
       title: 'SEO & metadata',
-      name: 'metadata'
+      name: 'metadata',
+      options: {
+        collapsible: true,
+        collapsed: true
+      }
     }
   ],
   fields: [
@@ -20,10 +24,10 @@ export default {
       title: 'Page sections',
       of: [
         { type: 'hero' },
-        { type: 'imageSection' },
-        { type: 'mailchimp' },
-        { type: 'textSection' }
-        // { type: 'cardSection'}
+        { type: 'cta' },
+        { type: 'imageAndTextCard' },
+        { type: 'list' },
+        { type: 'column' }
       ]
     },
     {
