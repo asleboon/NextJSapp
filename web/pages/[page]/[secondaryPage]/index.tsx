@@ -14,7 +14,7 @@ type SecondaryPageProps = {
     config: any;
 };
 
-const SecondaryPage: NextPage<SecondaryPageProps> = ({ page }) => {
+const SecondaryPage: NextPage<SecondaryPageProps> = ({ page }: SecondaryPageProps) => {
     if (!page || !page.content) {
         return <div>Ingen data for</div>;
     }
@@ -22,7 +22,7 @@ const SecondaryPage: NextPage<SecondaryPageProps> = ({ page }) => {
     return content && content.map((c: any) => renderer(c));
 };
 
-SecondaryPage.getInitialProps = async ({ sanityClient, query }) => {
+SecondaryPage.getInitialProps = async ({ sanityClient, query }: any) => {
     let slug: string = '';
     if (!query) {
         console.error('no query');
