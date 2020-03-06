@@ -39,12 +39,14 @@ const Header: React.FC<HeaderProps> = ({ primaryNavigation, secondaryNavigation,
                             </Link>
                         ))}
                 </Flex>
-                <Image
-                    style={{ margin: '0 auto' }}
-                    width="64px"
-                    height="64px"
-                    src={urlFor(logo).url() || ''}
-                />
+                <Link href="/">
+                    <Image
+                        style={{ margin: '0 auto', cursor: 'pointer' }}
+                        width="64px"
+                        height="64px"
+                        src={urlFor(logo).url() || ''}
+                    />
+                </Link>
                 <Flex p={2}>
                     {secondaryNavigation &&
                         secondaryNavigation.map((nav: any) => (

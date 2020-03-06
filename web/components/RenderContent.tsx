@@ -13,16 +13,11 @@ type RenderContentProps = {
 export const renderer = (stuff: any, isInColumnContainer = false) => {
     switch (stuff._type) {
         case 'hero':
-            return (
-                <Hero
-                    key={stuff._key}
-                    title={stuff.title}
-                    tagline={stuff.tagline}
-                    backgroundImage={stuff.backgroundImage}
-                />
-            );
+            return <Hero key={stuff._key} backgroundImage={stuff.backgroundImage} />;
         case 'cta':
-            return <CTA key={stuff._key} title={stuff.title} url={stuff.url || ''} />;
+            return (
+                <CTA key={stuff._key} title={stuff.title} url={stuff.route.slug.current || ''} />
+            );
         case 'customCard':
             return <CustomCard key={stuff._key} title={stuff.title} text={stuff.text} />;
         case 'columnContainer':

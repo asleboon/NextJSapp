@@ -22,7 +22,7 @@ type FrontPageProps = {
 
 const HomePage: NextPage<HomePageProps> = ({ config }) => {
     if (!config || !config.frontPage) {
-        return <div>Ingen data for</div>;
+        return <div>Ingen data for asdfasdf</div>;
     }
     const { content } = config.frontPage;
     return (

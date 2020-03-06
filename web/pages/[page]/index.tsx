@@ -13,9 +13,9 @@ type PageProps = {
     page: ContentProps | undefined;
 };
 
-const Page: NextPage<PageProps> = ({ page }) => {
+const Page: NextPage<PageProps> = ({ page }: PageProps) => {
     if (!page || !page.content) {
-        return <div>Ingen data for</div>;
+        return <div>{`Ingen data for denne siden`}</div>;
     }
     const { content } = page;
     return content && content.map((c: any) => renderer(c));

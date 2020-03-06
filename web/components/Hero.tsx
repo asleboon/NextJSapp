@@ -6,11 +6,9 @@ export const urlFor = (source: any) => urlBuilder(sanityClient).image(source);
 
 type HeroProps = {
     backgroundImage: any;
-    title: string;
-    tagline: string;
 };
 
-export const Hero: React.FC<HeroProps> = ({ title, backgroundImage, tagline }: any) => (
+export const Hero: React.FC<HeroProps> = ({ backgroundImage }: any) => (
     <Flex
         position="relative"
         width="100%"

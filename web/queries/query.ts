@@ -31,18 +31,23 @@ export const siteConfigQuery = groq`
 `;
 
 export const pageQuery = groq`
-*[_type == "route" && slug.current == $slug][0] {
-    page -> {
-      content[]{
+*[_type == "route" && slug.current == $slug][0]{
+    page->{
+    	content[]{
         _type,
         _key,
         title,
-        backgroundImage
+        backgroundImage,
+        route->{
+        	slug{
+        		current
+      		}
+      	}
       },
-			title,
-			openGraphImage
-    }
-}
+    title,
+    openGraphImage
+  	}
+  }
 `;
 
 // *[_type == "route" && slug.current == $slug][0] {

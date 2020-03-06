@@ -1,4 +1,4 @@
-import React, { ReactChildren, ReactElement } from 'react';
+import React from 'react';
 import { HeaderProps } from './Header';
 import Footer from './Footer';
 import Header from './Header';
