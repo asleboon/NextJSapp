@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextPage } from 'next';
 import { pageQuery } from '../../../../queries/query';
-import { renderer } from '../../../../components/RenderContent';
+import { pageRenderer } from '../../../../components/RenderPageComponent';
 
 type ContentProps = {
     content: any;
@@ -19,7 +19,7 @@ const SecondaryPage: NextPage<SecondaryPageProps> = ({ page }: SecondaryPageProp
         return <div>Ingen data for</div>;
     }
     const { content } = page;
-    return content && content.map((c: any) => renderer(c));
+    return content && content.map((c: any) => pageRenderer(c));
 };
 
 SecondaryPage.getInitialProps = async ({ sanityClient, query }: any) => {

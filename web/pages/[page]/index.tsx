@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextPage } from 'next';
 import { pageQuery } from '../../queries/query';
-import { renderer } from '../../components/RenderContent';
+import { pageRenderer } from '../../components/RenderPageComponent';
 
 type ContentProps = {
     content: any;
@@ -18,7 +18,7 @@ const Page: NextPage<PageProps> = ({ page }: PageProps) => {
         return <div>{`Ingen data for denne siden`}</div>;
     }
     const { content } = page;
-    return content && content.map((c: any) => renderer(c));
+    return content && content.map((c: any) => pageRenderer(c));
 };
 
 // TODO: add try catch

@@ -33,11 +33,21 @@ export const siteConfigQuery = groq`
 export const pageQuery = groq`
 *[_type == "route" && slug.current == $slug][0]{
     page->{
-    	content[]{
+    	content[]->{
         _type,
         _key,
         title,
         backgroundImage,
+        products[]->{
+          fullPrice,
+          fullPriceDescription,
+          installmentPrice,
+          installmentPriceDescription,
+          productImages[]{
+            ...,
+          },
+					title,
+        },
         route->{
         	slug{
         		current
@@ -50,27 +60,41 @@ export const pageQuery = groq`
   }
 `;
 
-// *[_type == "route" && slug.current == $slug][0] {
-//   page-> {
-//     content[] {
+// *[_type == "route" && slug.current == "tjenester/strom/produkter"][0]{
+//   page->{
+//     content[]{
 //       _type,
 //       _key,
-//       backgroundImage,
 //       title,
-//       tagline,
-//       label,
-//       text,
-//       image,
-//       columnContent[]{
-//           ...,
-//           internalPrimary->{
+//       backgroundImage,
+//       listContent[]{
+// fullPrice,
+// fullPriceDescription,
+// installmentPrice,
+// installmentPriceDescription,
+//           productImages[]{
 //             ...,
-//           }
 //         },
-//       route
-//       alt,
+//       },
+//       route->{
+//         slug{
+//           current
+//         }
+//       }
 //     },
-//     title,
-//     openGraphImage
+//   title,
+//   openGraphImage
+//   }
+// }
+
+// *[_type == "list"][0]{
+//   listContent[]->{
+//     fullPrice,
+//     fullPriceDescription,
+//     installmentPrice,
+//     installmentPriceDescription,
+//     productImages[]{
+//       ...,
+//     },
 //   }
 // }

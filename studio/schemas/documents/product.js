@@ -53,6 +53,16 @@ export default {
       fieldset: 'metadata'
     },
     {
+      name: 'openGraphImage',
+      title: 'Open Graph Image',
+      type: 'image',
+      fieldset: 'metadata',
+      options: {
+        hotspot: true,
+        isHighlighted: true
+      }
+    },
+    {
       name: 'name',
       title: 'Product name',
       type: 'string',
@@ -108,12 +118,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      media: 'productImages'
+      media: 'openGraphImage'
     },
-    prepare({ title }) {
+    prepare({ title, media }) {
       return {
         title,
-        subtitle: 'Product'
+        subtitle: 'Product',
+        media
       }
     }
   }

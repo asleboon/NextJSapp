@@ -8,7 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import page from './documents/page'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
-import column from './documents/column'
+import column from './objects/column'
 import seo from './documents/seo'
 
 // Object types
@@ -23,7 +23,9 @@ import hero from './objects/hero'
 import customCard from './objects/customCard'
 import imageAndTextCard from './objects/imageAndTextCard'
 import product from './documents/product'
-import list from './documents/list'
+import list from './objects/list'
+import productList from './documents/productList'
+import productColumn from './documents/productColumn'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -45,6 +47,8 @@ export default createSchema({
     portableText,
     seo,
     imageAndTextCard,
-    product
+    product,
+    productList,
+    productColumn
   ])
 })

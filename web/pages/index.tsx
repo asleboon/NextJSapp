@@ -2,7 +2,7 @@ import React from 'react';
 import { NextPage } from 'next';
 import { withTheme } from 'emotion-theming';
 
-import RenderContent from '../components/RenderContent';
+import RenderContent from '../components/RenderPageComponent';
 import Layout from '../components/Layout';
 
 type HomePageProps = {

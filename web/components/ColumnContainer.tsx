@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@chakra-ui/core';
-import { renderer } from './RenderContent';
+import { pageRenderer } from './RenderPageComponent';
 
 type ColumnContainerProps = {
     title: string;
@@ -8,8 +8,6 @@ type ColumnContainerProps = {
 };
 
 const ColumnContainer: React.FC<ColumnContainerProps> = ({ title, columnContent }) => {
-    // pass in true to renderer to tell that this is a columnContainer
-
     return (
         <Box
             display={['block', 'block', 'block', 'flex']}
@@ -17,7 +15,7 @@ const ColumnContainer: React.FC<ColumnContainerProps> = ({ title, columnContent 
             m="auto"
             boxSizing="border-box"
         >
-            {columnContent && columnContent.map((c: any) => renderer(c, true))}
+            {columnContent && columnContent.map((c: any) => pageRenderer(c, true))}
         </Box>
     );
 };

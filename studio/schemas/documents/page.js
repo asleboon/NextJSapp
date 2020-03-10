@@ -27,7 +27,8 @@ export default {
         { type: 'cta' },
         { type: 'imageAndTextCard' },
         { type: 'list' },
-        { type: 'column' }
+        { type: 'column' },
+        { type: 'reference', to: [{ type: 'productList' }, { type: 'productColumn' }] }
       ]
     },
     {
